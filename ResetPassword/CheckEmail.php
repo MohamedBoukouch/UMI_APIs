@@ -4,7 +4,7 @@ $email=filterRequest("email");
 $verifycode=rand(1000,99999);
 
 
-$stmt=$con->prepare("SELECT * FROM etudiants WHERE `email`=?");
+$stmt=$con->prepare("SELECT * FROM etudiant WHERE `email`=?");
 
 $stmt->execute(array($email));
 // $data->$stmt->fetch(PDO::FETCH_ASSOC);
@@ -13,7 +13,7 @@ $count=$stmt->rowcount();
 if($count>0){
 
     //Updateverifycode
-    $stmt=$con->prepare("UPDATE  etudiants SET `verifycode`=? WHERE `email`=? ");
+    $stmt=$con->prepare("UPDATE  etudiant SET `verifycode`=? WHERE `email`=? ");
     $stmt->execute(array($verifycode,$email,));
     $countt=$stmt->rowcount();
     

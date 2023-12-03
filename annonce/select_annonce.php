@@ -1,14 +1,9 @@
 <?php
 include "../Connection.php";
 
-$cne=filterRequest("cne");
+$stmt=$con->prepare("SELECT * FROM annonce");
 
-$stmt=$con->prepare(
-"SELECT *
-FROM note, etudiant
-WHERE note.cne = etudiant.cne AND etudiant.cne = ?");
-
-$stmt->execute(array($cne));
+$stmt->execute(array());
 $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $count=$stmt->rowcount();

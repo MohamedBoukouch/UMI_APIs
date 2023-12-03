@@ -6,15 +6,16 @@ $prenom = filterRequest("prenom");
 $email=filterRequest("email");
 $password=sha1(filterRequest("password"));
 $cne=filterRequest("cne");
+$filiere=filterRequest("filiere");
 
 $verifycode=rand(1000,99999);
 
 $stmt=$con->prepare("
-INSERT INTO `etudiant` (`nom`,`prenom`,`cne`,`email`,`password`,`verifycode`)
-VALUES(?,?,?,?,?,?)
+INSERT INTO `etudiant` (`nom`,`prenom`,`cne`,`email`,`password`,`verifycode`,`filiere`)
+VALUES(?,?,?,?,?,?,?)
 ");
 
-$stmt->execute(array($nom,$prenom,$cne,$email,$password,$verifycode));
+$stmt->execute(array($nom,$prenom,$cne,$email,$password,$verifycode,$filiere));
 
 $count=$stmt->rowcount();
 if($count>0){

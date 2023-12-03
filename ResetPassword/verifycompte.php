@@ -3,7 +3,7 @@ include "../Connection.php";
 $verifycode=filterRequest("verifycode");
 $email=filterRequest("email");
 
-$stmt=$con->prepare("SELECT * FROM etudiants WHERE `email`=? AND `verifycode`=?");
+$stmt=$con->prepare("SELECT * FROM etudiant WHERE `email`=? AND `verifycode`=?");
 $stmt->execute(array($email,$verifycode));
 
 $count=$stmt->rowcount();

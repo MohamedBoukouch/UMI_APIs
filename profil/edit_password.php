@@ -2,14 +2,14 @@
 include "../Connection.php";
 
 
-$user_id = filterRequest("user_id");
+$cne = filterRequest("cne");
 $oldpassword=sha1(filterRequest("oldpassword"));
 $newpassword=sha1(filterRequest("newpassword"));
 
 
 
-$stmt=$con->prepare("UPDATE  etudiant SET `password`=? WHERE `password`=? AND `id`=?");
-$stmt->execute(array($newpassword,$oldpassword,$user_id));
+$stmt=$con->prepare("UPDATE  etudiant SET `password`=? WHERE `password`=? AND `cne`=?");
+$stmt->execute(array($newpassword,$oldpassword,$cne));
 
 $count=$stmt->rowcount();
 

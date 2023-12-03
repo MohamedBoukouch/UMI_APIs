@@ -4,7 +4,7 @@ $email=filterRequest("email");
 $password=sha1(filterRequest("password"));
 
 
-$stmt=$con->prepare("UPDATE  etudiants SET `password`=? WHERE `email`=? ");
+$stmt=$con->prepare("UPDATE  etudiant SET `password`=? WHERE `email`=? ");
 $stmt->execute(array($password,$email));
 $count=$stmt->rowcount();
 
