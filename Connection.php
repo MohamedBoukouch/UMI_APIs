@@ -1,8 +1,8 @@
 <?php
 
-$dsn ="mysql:host=localhost;dbname=umi";
-$user="root";
-$pass="";
+$dsn ="mysql:host=localhost;dbname=id21574197_umi";
+$user="id21574197_umi_db";
+$pass="Mohamed_2003";
 
 global $con;
 try{

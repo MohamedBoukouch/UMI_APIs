@@ -1,10 +1,10 @@
 <?php
 include "../Connection.php";
 
-$email=filterRequest("email");
+$email=filterRequest("cne");
 $password=filterRequest("password");
 
-$stmt=$con->prepare("SELECT * FROM etudiant WHERE `email`=? AND `password`=?");
+$stmt=$con->prepare("SELECT * FROM etudiant WHERE `cne`=? AND `password`=?");
 
 $stmt->execute(array($email,sha1($password)));
 $data=$stmt->fetch(PDO::FETCH_ASSOC);
